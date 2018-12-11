@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/148345830.svg)](https://zenodo.org/badge/latestdoi/148345830)
+[![DOI](https://zenodo.org/badge/161369201.svg)](https://zenodo.org/badge/latestdoi/161369201)
 
 # Earth Analytics Python Course Materials
 
