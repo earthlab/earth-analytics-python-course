@@ -1,0 +1,1094 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Time Series Data in Python | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Time Series Data in Python">
+
+
+  <link rel="canonical" href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/">
+  <meta property="og:url" content="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/">
+
+
+
+  <meta content="     This Week  " name="description">
+  <meta property="og:description" content="     This Week  ">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Time Series Data in Python">
+  <meta name="twitter:description" content="     This Week  ">
+  <meta name="twitter:url" content="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-02-05T00:00:00-07:00">
+  
+    <link rel="next" href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/date-time-types-in-pandas-python/" title="Work With Datetime Format in Python - Time Series Data ">
+  
+  
+    <link rel="prev" href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/reproject-raster/" title="Reproject Raster Data Python">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:4000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:4000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:4000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/"> Earth analytics python </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Time Series Data in Python</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 3 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-python Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Data in Python / Jupyter Notebooks</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Lidar Raster Data in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+      <li> <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
+         3. TIME SERIES DATA IN PYTHON</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Time series data in pandas </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/date-time-types-in-pandas-python/><!--3.1 --> - Dates in Python</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/subset-time-series-data-python/><!--3.2 --> - Subset time series data in Python</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/><!--3.3 --> - Resample Time Series Data</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/customize-dates--matplotlib-plots-python/><!--3.4 --> - Custom Plot Date Tick Formats</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/about-the-time-series-data/><!--3.5 --> - About the Stream Discharge Data</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/floods-return-period-and-probability/><!--3.6 --> - Calculate Flood Return Period</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/><!--3.7 --> - Cumulative Sums in Pandas (Optional)</a></li>
+          
+          
+
+        
+        
+        
+
+        
+       </ul>
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Review: get to know python </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/><!--3.1 --> - Review: Get to Know Python</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/><!--3.2 --> - Objects in Python</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/><!--3.3 --> - Data Types</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/><!--3.4 --> - Spreadsheet Data in Python</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/plot-with-matplotlib-python/><!--3.5 --> - Matplotlib plotting</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/write-clean-code-with-python/><!--3.6 --> - Write Clean Code</a></li>
+          
+          
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/about-and-get-help-with-python/><!--3.7 --> - About Python & Get Help</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Introduction to Shapefiles and Vector Data in Open Source Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       5. Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. You Can Contribute To Open Source Software Too! How to Get Started in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Learn to Create Efficient Data Workflows in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. MidTerm Review - Science Communication</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Programmatic Data Access</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:4000/courses/earth-analytics-python/">
+           Earth Analytics Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:4000/courses/earth-analytics-python/earth-analytics-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-python Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Time Series Data in Python">
+    <meta itemprop="description" content="     This Week  ">
+    <meta itemprop="datePublished" content="February 05, 2018">
+    <meta itemprop="dateModified" content="November 27, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            
+             Time Series Data in Python
+ </h1>
+            
+          
+
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> This Week</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#welcome-to-earth-analytics-python---week-3" id="markdown-toc-welcome-to-earth-analytics-python---week-3"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Earth Analytics Python - Week 3!</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need">What You Need</a></li>
+  <li><a href="#-class-schedule" id="markdown-toc--class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</a></li>
+  <li><a href="#-week-3" id="markdown-toc--week-3"><i class="fa fa-pencil"></i> Week 3</a></li>
+  <li><a href="#important---data-organization" id="markdown-toc-important---data-organization">Important - Data Organization</a></li>
+  <li><a href="#homework-plots" id="markdown-toc-homework-plots">Homework Plots</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<div class="notice--info">
+
+  <h2 id="welcome-to-earth-analytics-python---week-3"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Earth Analytics Python - Week 3!</h2>
+
+  <p>Welcome to week 3 of Earth Analytics! This week you will learn how to work with and plot time series data using <code class="highlighter-rouge">Python</code> and <code class="highlighter-rouge">Jupyter Notebooks</code>. You will learn how to:</p>
+
+  <ul>
+    <li>Import text files that are tab delimted and comma separated into pandas.</li>
+    <li>Handle different date and time fields and formats in <code class="highlighter-rouge">Pandas</code></li>
+    <li>Set a <code class="highlighter-rouge">datetime</code> field as an index when importing your data</li>
+    <li>Calulate the return time for a flood event.</li>
+    <li>Subset time series data by date</li>
+    <li>Handle missing data values in <code class="highlighter-rouge">pandas</code>.</li>
+  </ul>
+
+  <h2 id="what-you-need">What You Need</h2>
+
+  <p>You will need the Colorado Flood Teaching data subset and a computer with Anaconda Python 3.x and the <code class="highlighter-rouge">earth-analytics-python</code> environment installed to complete this lesson</p>
+
+  <p><a href="https://ndownloader.figshare.com/files/12395030" data-proofer-ignore="" class="btn btn--success btn--x-large"><i class="fa fa-download" aria-hidden="true"></i> Download Colorado Flood Teaching Data Subset data</a></p>
+
+  <p>The data that you use this week was collected by US Agency managed sensor networks and includes:</p>
+
+  <ul>
+    <li>USGS stream gage network data and</li>
+    <li>NOAA / National Weather Service precipitation data.</li>
+  </ul>
+
+  <p>All of the data you work with were collected in Boulder, Colorado around the time of the 2013 floods.</p>
+
+  <p>Read the assignment below carefully. Use the class and homework lessons to help you complete the assignment.</p>
+</div>
+
+<h2 id="-class-schedule"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">time</th>
+      <th style="text-align: left">topic</th>
+      <th style="text-align: left">speaker</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Review Jupyter Notebooks / Raster data in Python / questions</td>
+      <td style="text-align: left">Leah</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Python coding session - Time Series Data in Pandas - Python</td>
+      <td style="text-align: left">Leah</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Break</td>
+      <td style="text-align: left"> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Speaker - Matt Rossi - Understanding Floods</td>
+      <td style="text-align: left">Matt Rossi</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Return Time Activity</td>
+      <td style="text-align: left">Leah &amp; Matt</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tfoot>
+</table>
+
+<h2 id="-week-3"><i class="fa fa-pencil"></i> Week 3</h2>
+
+<h2 id="important---data-organization">Important - Data Organization</h2>
+
+<p>After you have downloaded the data for this week, be sure that your directory is setup as specified below.</p>
+
+<p>If you are working on your computer, locally, you will need to <strong>unzip</strong> the zip file. 
+When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the <code class="highlighter-rouge">colorado-flood</code>
+directory. The data are not nested within another directory. You may have to copy
+and paste your files into the correct directory to make this look right.</p>
+
+<figure>
+<a href="http://localhost:4000/images/courses/earth-analytics/co-flood-lessons/week-02-data.jpg">
+<img src="http://localhost:4000/images/courses/earth-analytics/co-flood-lessons/week-02-data.jpg" alt="Your `week_02` file directory should look like the one above. Note that
+the data directly under the colorado-flood folder." />
+</a>
+<figcaption>Your `colorado-flood` file directory should look like the one above. Note that
+the data directly under the colorado-flood folder.</figcaption>
+</figure>
+
+<p>If you are working in the Jupyter Hub or have the earth-analytics-python environment installed on your computer, you can use the <code class="highlighter-rouge">earthpy</code> download function to access the data. Like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">earthpy</span> <span class="k">as</span> <span class="n">et</span>
+<span class="n">et</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="s">"colorado-flood"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="why-data-organization-matters">Why Data Organization Matters</h3>
+
+<p>It is important that your data are organized as specified in the lessons because:</p>
+
+<ol>
+  <li>When the instructors grade your assignments, we will be able to run your code if your directory looks like the instructors’.</li>
+  <li>It will be easier for you to follow along in class if your directory is the same as the instructors.</li>
+  <li>Your notebook becomes more reproducible if you use a standard working directory. Most computing environments have a default <code class="highlighter-rouge">home</code> directory. It is good practice to learn how to organize your files in a way that makes it easier for your future self to find and work with your data!</li>
+</ol>
+
+<!-- 
+### 2. Videos
+
+Please watch the following short videos before the start of class next week. They will help you prepare for class! 
+
+#### The Story of Lidar Data Video
+<iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
+
+#### How Lidar Works
+<iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
+-->
+
+<h2 id="homework-plots">Homework Plots</h2>
+
+<p>Please visit CANVAS for the assignment and grading rubric. Below are examples of what your plots should look like.
+Note that you can modify the colors, style, etc of your plots as you’d like. These plots are just examples to help you visually check your homework.</p>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_3_0.png" alt="Homework plot of Monthly max discharge data." />
+<figcaption>Homework plot of Monthly max discharge data.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_4_0.png" alt="Homework plot of Daily max discharge data." />
+<figcaption>Homework plot of Daily max discharge data.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png" alt="Homework plot of Monthly total precipitation data." />
+<figcaption>Homework plot of Monthly total precipitation data.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png" alt="Homework plot of Daily total discharge data." />
+<figcaption>Homework plot of Daily total discharge data.</figcaption>
+
+</figure>
+
+<p>Note: to plot the y axis on a log scale use the argument: <code class="highlighter-rouge">logy= True</code> in your pandas <code class="highlighter-rouge">.plot()</code> call. If you use matplotlib to plot the data then you will want to calculate the log value in a new column and plot that.</p>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt="Probabilty of Stream discharge events plot." />
+<figcaption>Probabilty of Stream discharge events plot.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png" alt="Return period for stream discharge events plot." />
+<figcaption>Return period for stream discharge events plot.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt="Probabiltiy for precipitation events plot." />
+<figcaption>Probabiltiy for precipitation events plot.</figcaption>
+
+</figure>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_11_0.png" alt="Return period for precipitation events plot." />
+<figcaption>Return period for precipitation events plot.</figcaption>
+
+</figure>
+
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-11-27">November 27, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:4000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+
+  
+     LINK HERE ea-python doi
+     earth-analytics-python, earth-analytics-python
+  
+
+
+  
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:4000/license"> All materials on this site
+        are subject to the CC BY-NC-ND 4.0 License. </a>
+      </strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<!--
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+-->
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,3342 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+
+<meta charset="utf-8">
+
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Extract raster values using vector boundaries in Python | Earth Data Science - Earth Lab </title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Earth Data Science - Earth Lab">
+<meta property="og:title" content="Extract raster values using vector boundaries in Python">
+
+
+  <link rel="canonical" href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/">
+  <meta property="og:url" content="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/">
+
+
+
+  <meta content="This lesson reviews how to extract data from a raster dataset using a vector dataset." name="description">
+  <meta property="og:description" content="This lesson reviews how to extract data from a raster dataset using a vector dataset.">
+
+
+<!-- twitter cards -->
+
+  <meta name="twitter:site" content="@earthlabcu">
+  <meta name="twitter:title" content="Extract raster values using vector boundaries in Python">
+  <meta name="twitter:description" content="This lesson reviews how to extract data from a raster dataset using a vector dataset.">
+  <meta name="twitter:url" content="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/">
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://earthdatascience.org/images/earth_sm_twit.png">
+    <meta name="twitter:image:alt" content="The Earthlab Logo - image of a globe with courses, lessons and tutorials">
+
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-12-06T00:00:00-07:00">
+  
+    <link rel="next" href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/" title="Use Regression Analysis to Explore Data Relationships &amp; Bad Data">
+  
+  
+    <link rel="prev" href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/" title="Extract Raster Values At Point Locations in Python">
+  
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Earth Analytics",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Earth Data Science - Earth Lab Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="LfpevjsE0wlELv5KKOZv1T2RhRimGSiRckWv5ZC19GU" />
+<!-- don't use the old cataloged meta tags -->
+<meta name="googlebot" content="noodp">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+
+<!-- For all browsers
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">-->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body>
+
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<!-- search bar begin  - turning off for now-->
+
+<div class="search">
+<form role="search" method="get" action="http://localhost:4000/search/">
+    <input id="q" name="q"
+           placeholder="Search earth data science site" type="text">
+</form>
+<!--<span class='cu-boulder'><a href="http://www.colorado.edu/earthlab" target="_blank">Earth Lab University of Colorado - Boulder Home </a></span> -->
+</div>
+
+
+<!-- search bar END -->
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/courses/">Courses</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/workshops/">Workshops</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tools/">Tools</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/events/">Events</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+ <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+<a href="http://localhost:4000"></a>
+ 
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ 
+   
+   
+     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+       <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+       <meta itemprop="position" content="" />
+     </li>
+     <span class="sep">/</span>
+   
+    
+        <li><a href="http://localhost:4000/courses/">Courses </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/">Earth analytics python </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> Week 5.  Lidar remote sensing uncertainty </a>
+        <span class="sep">/</span></li>
+    
+  
+   
+    
+        <li class="current">Extract raster values using vector boundaries in Python</li>
+    
+  
+</ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+    
+    
+
+
+    
+
+    
+     <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
+      
+
+
+
+
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
+<!--<h3>Week 5 Lessons</h3>-->
+<!-- i don't think the code below is used as modules is defined lower down as well. -->
+
+<!-- This is how modules are sorted on the left hand side bar -->
+
+
+
+
+
+
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-python Home</a></h5>
+
+<!-- Just get the pages from this course -->
+
+
+
+
+
+
+<nav class="nav__list">
+
+
+
+
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       1. Get Started with Data in Python / Jupyter Notebooks</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       2. Lidar Raster Data in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       3. Time Series Data in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       4. Introduction to Shapefiles and Vector Data in Open Source Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+
+
+      
+       
+        <li class='active-section'> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+           5. LIDAR REMOTE SENSING UNCERTAINTY - COMPARE GROUND TO LIDAR MEASUREMENTS OF TREE HEIGHT IN PYTHON</a></li>
+        
+
+<div class='active-menu'>
+      <ul>
+        
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+        
+
+        
+
+        
+
+        
+        
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Uncertainty in scientific data & metadata  </span></li>
+        <ul>
+
+      
+      <!-- count lessons -->
+
+        
+        
+        
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/understand-uncertainty-lidar/><!--5.1 --> - Remote Sensing Uncertainty</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/><!--5.2 --> - Extract Data From Raster</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/ class='active'> <!--5.3 -->- Compare Lidar to Measured Tree Height</a></li>
+          
+          
+
+        
+        
+        
+          
+          <li><a href= http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/><!--5.4 --> - Regression to Compare Variables</a></li>
+          
+          
+
+        
+       </ul>
+        
+
+        
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         
+         
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       7. Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       8. Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       9. You Can Contribute To Open Source Software Too! How to Get Started in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       10. Learn to Create Efficient Data Workflows in Python</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       11. MidTerm Review - Science Communication</a></li>
+    
+
+
+      
+
+    
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    
+    <li> <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+       13. Programmatic Data Access</a></li>
+    
+
+
+      
+
+    
+  </ul></li>
+ </ul>
+
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     
+          
+         <li> <a href="http://localhost:4000/courses/earth-analytics-python/">
+           Earth Analytics Home </a></li>
+         
+
+     
+          
+         <li> <a href="http://localhost:4000/courses/earth-analytics-python/earth-analytics-syllabus/">
+           Course Syllabus </a></li>
+         
+
+     
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> earth-analytics-python Home</a></h5>
+
+    
+
+    
+
+  
+  </div>
+
+
+
+
+
+
+<!-- begin science / science themes side bar nav -->
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <meta itemprop="headline" content="Extract raster values using vector boundaries in Python">
+    <meta itemprop="description" content="This lesson reviews how to extract data from a raster dataset using a vector dataset.">
+    <meta itemprop="datePublished" content="December 06, 2016">
+    <meta itemprop="dateModified" content="October 08, 2018">
+
+    <div class="page__inner-wrap">
+      
+
+        <header>
+          <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
+
+          <!-- END: insert welcome block -->
+          <h1 class="page__title" itemprop="headline">
+            Lesson 3. 
+             Extract raster values using vector boundaries in Python
+ </h1>
+            
+          
+
+          
+            <div class="page__meta">
+              
+              
+              <a href="http://localhost:4000/authors/leah-wasser">Leah Wasser</a>, 
+              
+              
+              <a href="http://localhost:4000/authors/chris-holdgraf">Chris Holdgraf</a>, 
+              
+              
+              <a href="http://localhost:4000/authors/carson-farmer">Carson Farmer</a>
+              
+            </div>
+          
+
+        <br/>
+
+        
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</a></li>
+  <li><a href="#what-you-need" id="markdown-toc-what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</a></li>
+  <li><a href="#is-lidar-derived-tree-height-the-same-as-human-measured-tree-height" id="markdown-toc-is-lidar-derived-tree-height-the-same-as-human-measured-tree-height">Is Lidar Derived Tree Height the Same As Human Measured Tree Height?</a></li>
+  <li><a href="#summarize-tree-height-data--using-pandas" id="markdown-toc-summarize-tree-height-data--using-pandas">Summarize Tree Height Data  Using Pandas</a></li>
+  <li><a href="#merge-insitu-data-with-spatial-dataframe" id="markdown-toc-merge-insitu-data-with-spatial-dataframe">Merge InSitu Data With Spatial data.frame</a></li>
+  <li><a href="#plot-data-chm-vs-measured" id="markdown-toc-plot-data-chm-vs-measured">Plot Data (CHM vs Measured)</a></li>
+  <li><a href="#create-map-of-plot-locations-sized-by-tree-height" id="markdown-toc-create-map-of-plot-locations-sized-by-tree-height">Create Map of Plot Locations Sized by Tree Height</a></li>
+  <li><a href="#optional---create-difference-bar-plot-lidar-vs-measured" id="markdown-toc-optional---create-difference-bar-plot-lidar-vs-measured">Optional - Create Difference Bar Plot: Lidar vs Measured</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<div class="notice--success">
+
+  <h2 id="learning-objectives"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives</h2>
+
+  <p>After completing this tutorial, you will be able to:</p>
+
+  <ul>
+    <li>Summarize tabular data using <code class="highlighter-rouge">pandas</code> in <code class="highlighter-rouge">Python</code></li>
+    <li>Create a scatter plot with a one to one line in <code class="highlighter-rouge">Python</code> using <code class="highlighter-rouge">Matplotlib</code></li>
+    <li>Merge two data frames in <code class="highlighter-rouge">Python</code></li>
+  </ul>
+
+  <h2 id="what-you-need"><i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need</h2>
+
+  <p>You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: <code class="highlighter-rouge">spatial-vector-lidar data subset</code>.</p>
+
+  <p><a href="https://ndownloader.figshare.com/files/12459464" data-proofer-ignore="" class="btn btn--success btn--x-large"><i class="fa fa-download" aria-hidden="true"></i> Download Spatial Lidar Teaching Data Subset data</a></p>
+
+  <p>or using the <code class="highlighter-rouge">earthpy</code> package:</p>
+
+  <p><code class="highlighter-rouge">et.data.get_data("spatial-vector-lidar")</code></p>
+
+</div>
+
+<p>In this lesson series your overall goal is to compare tree height measurements taken by humans in the field to height values extracted from a lidar remote sensing canopy height model. You are working with two different types of data:</p>
+
+<ol>
+  <li>Raster - the lidar canopy height model and</li>
+  <li>Vector point location data</li>
+</ol>
+
+<p>In the previous lesson, you learned how to extract raster values from an area derived by create a buffer region around each point in a shapefile. In this lesson you will summarize the human made measurements and then compare them to lidar.</p>
+
+<p>To begin, load all of the required libraries.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">rasterio</span> <span class="k">as</span> <span class="n">rio</span>
+<span class="kn">from</span> <span class="nn">rasterio.plot</span> <span class="kn">import</span> <span class="n">plotting_extent</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="n">gpd</span>
+<span class="kn">import</span> <span class="nn">rasterstats</span> <span class="k">as</span> <span class="n">rs</span>
+<span class="kn">from</span> <span class="nn">earthpy</span> <span class="kn">import</span> <span class="n">spatial</span> <span class="k">as</span> <span class="n">es</span>
+<span class="kn">import</span> <span class="nn">earthpy</span> <span class="k">as</span> <span class="n">et</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">et</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">HOME</span><span class="p">,</span> <span class="s">'earth-analytics'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>For this lesson you will work with the Lidar Canopy Height Model created by NEON located here:</p>
+
+<p><code class="highlighter-rouge">data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJER_lidarCHM.tif</code></p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Load data</span>
+<span class="k">with</span> <span class="n">rio</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJER_lidarCHM.tif'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sjer_lidar_chm_src</span><span class="p">:</span>
+    <span class="n">SJER_chm_data</span> <span class="o">=</span> <span class="n">sjer_lidar_chm_src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">sjer_chm_meta</span> <span class="o">=</span> <span class="n">sjer_lidar_chm_src</span><span class="o">.</span><span class="n">profile</span>
+    <span class="n">sjer_chm_plt</span> <span class="o">=</span> <span class="n">plotting_extent</span><span class="p">(</span><span class="n">sjer_lidar_chm_src</span><span class="p">)</span>
+
+<span class="n">plot_buffer_path</span> <span class="o">=</span> <span class="s">'data/spatial-vector-lidar/outputs/plot_buffer.shp'</span>
+
+<span class="c"># Extract zonal stats &amp; create geodataframe</span>
+<span class="n">sjer_tree_heights</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">zonal_stats</span><span class="p">(</span><span class="n">plot_buffer_path</span><span class="p">,</span>
+                                   <span class="n">SJER_chm_data</span><span class="p">,</span>
+                                   <span class="n">affine</span><span class="o">=</span><span class="n">sjer_chm_meta</span><span class="p">[</span><span class="s">'transform'</span><span class="p">],</span>
+                                   <span class="n">geojson_out</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                   <span class="n">copy_properties</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                   <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                   <span class="n">stats</span><span class="o">=</span><span class="s">"count mean max"</span><span class="p">)</span>
+
+<span class="n">SJER_lidar_height_df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">sjer_tree_heights</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="is-lidar-derived-tree-height-the-same-as-human-measured-tree-height">Is Lidar Derived Tree Height the Same As Human Measured Tree Height?</h2>
+
+<p>You have now done the following:</p>
+
+<ol>
+  <li>You’ve opened and cleaned up some lidar canopy height model data</li>
+  <li>You’ve extracted height values for the field plot locations where humans measured trees.</li>
+</ol>
+
+<p>Next, you need to summarize the <em>in situ</em> collected
+tree height data, measured within circular plots across our study area. You will then compare
+the maximum measured tree height value to the maximum LiDAR derived height value
+for each circular plot.</p>
+
+<p>For this lesson, you will use the a <code class="highlighter-rouge">.csv</code> (comma separate value) file,
+located in <code class="highlighter-rouge">SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv</code>.</p>
+
+<p>First determine the number many plots are in the tree height data. Note that the tree
+height data is stored in <code class="highlighter-rouge">.csv</code> format.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Import &amp; view insitu (field measured) data</span>
+<span class="n">path_insitu</span> <span class="o">=</span> <span class="s">'data/spatial-vector-lidar/california/neon-sjer-site/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv'</span>
+<span class="n">SJER_insitu_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_insitu</span><span class="p">)</span>
+
+<span class="c"># View columns in data</span>
+<span class="n">SJER_insitu_all</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index(['siteid', 'sitename', 'plotid', 'easting', 'northing', 'taxonid',
+       'scientificname', 'indvidual_id', 'pointid', 'individualdistance',
+       'individualazimuth', 'dbh', 'dbhheight', 'basalcanopydiam',
+       'basalcanopydiam_90deg', 'maxcanopydiam', 'canopydiam_90deg',
+       'stemheight', 'stemremarks', 'stemstatus', 'canopyform', 'livingcanopy',
+       'inplotcanopy', 'materialsampleid', 'dbhqf', 'stemmapqf', 'plant_group',
+       'common_name', 'aop_plot', 'unique_id'],
+      dtype='object')
+</code></pre></div></div>
+
+<p>Before you go any further, you may want to select just the columns that you will need in your analysis. This will make your data a bit cleaner. In some cases you will not want to drop columns. However for this lesson, there is no reason to keep the extra data as you won’t use it in this analysis!</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SJER_insitu</span> <span class="o">=</span> <span class="n">SJER_insitu_all</span><span class="p">[[</span>
+    <span class="s">"siteid"</span><span class="p">,</span> <span class="s">"sitename"</span><span class="p">,</span> <span class="s">"plotid"</span><span class="p">,</span> <span class="s">"stemheight"</span><span class="p">,</span> <span class="s">"scientificname"</span><span class="p">]]</span>
+<span class="n">SJER_insitu</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>siteid</th>
+      <th>sitename</th>
+      <th>plotid</th>
+      <th>stemheight</th>
+      <th>scientificname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SJER</td>
+      <td>San Joaquin</td>
+      <td>SJER128</td>
+      <td>18.2</td>
+      <td>Pinus sabiniana</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SJER</td>
+      <td>San Joaquin</td>
+      <td>SJER2796</td>
+      <td>3.3</td>
+      <td>Arctostaphylos viscida</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SJER</td>
+      <td>San Joaquin</td>
+      <td>SJER272</td>
+      <td>1.7</td>
+      <td>Arctostaphylos viscida</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SJER</td>
+      <td>San Joaquin</td>
+      <td>SJER112</td>
+      <td>2.1</td>
+      <td>Arctostaphylos viscida</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SJER</td>
+      <td>San Joaquin</td>
+      <td>SJER272</td>
+      <td>3.0</td>
+      <td>Arctostaphylos viscida</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="summarize-tree-height-data--using-pandas">Summarize Tree Height Data  Using Pandas</h2>
+<p>You want to calculate a summary value of max tree height (the tallest tree measured) in each plot. 
+You have a unique id for each plot - <strong>plotid</strong> that can be used to group the data. The tree height values themselves are located in the <strong>stemheight</strong> column.</p>
+
+<p>You can calculate this by using the <code class="highlighter-rouge">.groupy()</code> method in pandas.</p>
+
+<p>The steps are</p>
+
+<ol>
+  <li><code class="highlighter-rouge">.groupby()</code> - group the data by the plotid column - your unique identifier for each plot.</li>
+  <li><code class="highlighter-rouge">.agg()</code> - provide the summary statistics that you want to return for each plot. in this case <code class="highlighter-rouge">max</code> and <code class="highlighter-rouge">mean</code>.</li>
+  <li>below <code class="highlighter-rouge">['stemheight</code>]` is the name of the column that you want to summarize.</li>
+</ol>
+
+<p><code class="highlighter-rouge">SJER_insitu.groupby('plotid').agg(['mean', 'min', 'max'])['stemheight']</code></p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">insitu_stem_ht</span> <span class="o">=</span> <span class="n">SJER_insitu</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'plotid'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="p">[</span><span class="s">'mean'</span><span class="p">,</span> <span class="s">'max'</span><span class="p">])[</span><span class="s">'stemheight'</span><span class="p">]</span>
+<span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>plotid</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SJER1068</th>
+      <td>3.866667</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>SJER112</th>
+      <td>8.221429</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <th>SJER116</th>
+      <td>8.218750</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>SJER117</th>
+      <td>6.512500</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>SJER120</th>
+      <td>7.600000</td>
+      <td>8.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>You are almost done sumarizing your data. For expressive and reproducible reasons, add the word <code class="highlighter-rouge">insitu</code> to each column header so it’s very clear which data columns are human measured. This is important given you will MERGE this data frame with the data frame containing lidar mean, min and max values.</p>
+
+<p>Notice that below you use a pythonic approach to creating for loops. Rather than looping through each column and appending the word “insitu”, you create a pythonic for loop which populates a list. You then reassign that list fo the column names for the <code class="highlighter-rouge">insitu_stem_ht</code> dataframe.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s">'insitu_'</span> <span class="o">+</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['insitu_plotid', 'insitu_insitu_mean', 'insitu_insitu_max']
+</code></pre></div></div>
+
+<p>Rename each column - appending “insitu”.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add insitu to each column name to make your data more expressive</span>
+<span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'insitu_'</span> <span class="o">+</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="c"># Reset the index (plotid)</span>
+<span class="n">insitu_stem_ht</span> <span class="o">=</span> <span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">insitu_stem_ht</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>plotid</th>
+      <th>insitu_mean</th>
+      <th>insitu_max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SJER1068</td>
+      <td>3.866667</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SJER112</td>
+      <td>8.221429</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SJER116</td>
+      <td>8.218750</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SJER117</td>
+      <td>6.512500</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SJER120</td>
+      <td>7.600000</td>
+      <td>8.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="merge-insitu-data-with-spatial-dataframe">Merge InSitu Data With Spatial data.frame</h2>
+
+<p>Once you have our summarized insitu data, you can <code class="highlighter-rouge">merge</code> it into the centroids
+<code class="highlighter-rouge">data frame</code>. Merge requires two data.frames and the names of the columns
+containing the unique ID that we will merge the data on. In this case, you will
+merge the data on the <code class="highlighter-rouge">plot_id</code> column. Notice that it’s spelled slightly differently
+in both data.frames so we’ll need to tell Python what it’s called in each <code class="highlighter-rouge">dataframe</code>.</p>
+
+<p>Note that if you want to merge two GeoDataFrames together, you <strong>cannot</strong> use the standard Pandas <code class="highlighter-rouge">merge</code> function. This will turn the GeoDataFrame into a regular DataFrame. Instead, you need to use the <code class="highlighter-rouge">merge</code> <em>method</em> of a GeoDataFrame object, like so:</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Rename columns so that we know which columns represent lidar values</span>
+<span class="n">SJER_lidar_height_df</span> <span class="o">=</span> <span class="n">SJER_lidar_height_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'max'</span><span class="p">:</span> <span class="s">'lidar_max'</span><span class="p">,</span> <span class="s">'mean'</span><span class="p">:</span> <span class="s">'lidar_mean'</span><span class="p">,</span> <span class="s">'min'</span><span class="p">:</span> <span class="s">'lidar_min'</span><span class="p">})</span>
+
+<span class="c"># Join lidar and human measured tree height data</span>
+<span class="n">SJER_final_height</span> <span class="o">=</span> <span class="n">SJER_lidar_height_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">insitu_stem_ht</span><span class="p">,</span>
+                                               <span class="n">left_on</span><span class="o">=</span><span class="s">'Plot_ID'</span><span class="p">,</span>
+                                               <span class="n">right_on</span><span class="o">=</span><span class="s">'plotid'</span><span class="p">)</span>
+<span class="n">SJER_final_height</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="output execute_result">
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Plot_ID</th>
+      <th>Point</th>
+      <th>count</th>
+      <th>easting</th>
+      <th>geometry</th>
+      <th>lidar_max</th>
+      <th>lidar_mean</th>
+      <th>northing</th>
+      <th>plot_type</th>
+      <th>plotid</th>
+      <th>insitu_mean</th>
+      <th>insitu_max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SJER1068</td>
+      <td>center</td>
+      <td>161</td>
+      <td>255852.376</td>
+      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
+      <td>19.049999</td>
+      <td>11.544348</td>
+      <td>4111567.818</td>
+      <td>trees</td>
+      <td>SJER1068</td>
+      <td>3.866667</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SJER112</td>
+      <td>center</td>
+      <td>443</td>
+      <td>257406.967</td>
+      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
+      <td>24.019999</td>
+      <td>10.369277</td>
+      <td>4111298.971</td>
+      <td>trees</td>
+      <td>SJER112</td>
+      <td>8.221429</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SJER116</td>
+      <td>center</td>
+      <td>643</td>
+      <td>256838.760</td>
+      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
+      <td>16.070000</td>
+      <td>7.518398</td>
+      <td>4110819.876</td>
+      <td>grass</td>
+      <td>SJER116</td>
+      <td>8.218750</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SJER117</td>
+      <td>center</td>
+      <td>245</td>
+      <td>256176.947</td>
+      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
+      <td>11.059999</td>
+      <td>7.675347</td>
+      <td>4108752.026</td>
+      <td>trees</td>
+      <td>SJER117</td>
+      <td>6.512500</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SJER120</td>
+      <td>center</td>
+      <td>17</td>
+      <td>255968.372</td>
+      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
+      <td>5.740000</td>
+      <td>4.591176</td>
+      <td>4110476.079</td>
+      <td>grass</td>
+      <td>SJER120</td>
+      <td>7.600000</td>
+      <td>8.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="column-names-matter">Column Names Matter</h3>
+
+<p>Take note that while you you don’t have to rename the columns as you did above in order to successfully computer your final merged dataframe, it helps if you do because</p>
+
+<ol>
+  <li>Now anyone looking at your data knows what each column represents.</li>
+  <li>If you export the data to a text file, your columns are named expressively</li>
+  <li>If you return to this analysis in 6 months, you will still be able to quickly understand what data are in each column if they are well named!</li>
+</ol>
+
+<h2 id="plot-data-chm-vs-measured">Plot Data (CHM vs Measured)</h2>
+
+<p>You’ve now merged the two dataframes together. Your are ready to create your first scatterplot of the data. 
+You can use the pandas <code class="highlighter-rouge">.plot()</code> to create a scatterplot (or you can use matplotlib directly). The example below uses pandas plotting.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Convert to a dataframe so you can use standard pandas plotting</span>
+<span class="n">SJER_final_height_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">SJER_final_height</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">SJER_final_height_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s">'lidar_max'</span><span class="p">,</span>
+                          <span class="s">'insitu_max'</span><span class="p">,</span>
+                          <span class="n">kind</span><span class="o">=</span><span class="s">'scatter'</span><span class="p">,</span>
+                          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> 
+                          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s">"Lidar derived max tree height"</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s">"Measured tree height (m)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Lidar vs Measured Max Tree Height </span><span class="se">\n</span><span class="s"> NEON SJER Field Site"</span><span class="p">,</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_18_0.png" alt="Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line." />
+<figcaption>Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.</figcaption>
+
+</figure>
+
+<p>Next, let’s fix the plot adding a 1:1 line and making the x and y axis the same .</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">SJER_final_height_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s">'lidar_max'</span><span class="p">,</span>
+                          <span class="s">'insitu_max'</span><span class="p">,</span>
+                          <span class="n">kind</span><span class="o">=</span><span class="s">'scatter'</span><span class="p">,</span>
+                          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                          <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s">"Lidar Derived Max Tree Height"</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s">"Measured Tree Height (m)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Lidar vs Measured Max Tree Height </span><span class="se">\n</span><span class="s"> NEON SJER Field Site"</span><span class="p">,</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c"># Add 1:1 line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+
+<span class="c"># Adjust x and y axis limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_20_0.png" alt="Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line." />
+<figcaption>Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.</figcaption>
+
+</figure>
+
+<hr />
+
+<div class="notice--info">
+
+  <h3 id="optional---export-results-as-a-csv-file">OPTIONAL - Export Results as a .csv File</h3>
+
+  <p>You may want to export your final analysis file as a <code class="highlighter-rouge">.csv</code> file. You can use the Pandas <code class="highlighter-rouge">.to_csv()</code> method to export a dataframe. .to_csv requires a directory that exists on your computer and a file name like this:</p>
+
+  <p><code class="highlighter-rouge">dataframe_name.to_csv("data/spatial-vector-lidar/outputs/sjer-lidar-insitu-merge.csv")</code></p>
+
+</div>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Export the final data frame as a csv file.</span>
+<span class="n">SJER_final_height_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s">"data/spatial-vector-lidar/outputs/sjer-lidar-insitu-merge.csv"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="create-map-of-plot-locations-sized-by-tree-height">Create Map of Plot Locations Sized by Tree Height</h2>
+
+<p>Finally, you may want to create a map where points are sized according to tree height. To do that you</p>
+
+<ol>
+  <li>Create or use a point geometry for each site location. In the case below we are using the data.frame that had the buffered points, and updating the geometry so that it is a point rather than the buffered polygon geometry.</li>
+  <li>Then you set the point markersize using an attribute in your geodataframe. In the example below you use <code class="highlighter-rouge">insitu_maxht</code></li>
+</ol>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Convert the geometry column to contain points</span>
+<span class="n">SJER_final_height</span><span class="p">[</span><span class="s">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">SJER_final_height</span><span class="o">.</span><span class="n">centroid</span>
+<span class="n">SJER_final_height</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">SJER_final_height</span><span class="p">[</span><span class="s">'insitu_max'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0     19.3
+1     23.9
+2     16.0
+3     11.0
+4      8.8
+5     18.2
+6     13.7
+7     12.4
+8      9.4
+9     17.9
+10     9.2
+11    11.8
+12    11.5
+13    10.8
+14     5.2
+15    26.5
+16    18.4
+17     7.7
+Name: insitu_max, dtype: float64
+</code></pre></div></div>
+
+<p>Plot the points by tree height.</p>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">SJER_chm_data</span><span class="p">,</span>
+          <span class="n">cmap</span><span class="o">=</span><span class="s">'Greys'</span><span class="p">,</span>
+          <span class="n">extent</span><span class="o">=</span><span class="n">sjer_chm_plt</span><span class="p">)</span>
+
+<span class="c"># Plot centroids of each geometry as points so that you can control their size</span>
+<span class="n">SJER_final_height</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                                <span class="n">marker</span><span class="o">=</span><span class="s">'o'</span><span class="p">,</span>
+                                <span class="n">markersize</span><span class="o">=</span><span class="n">SJER_final_height</span><span class="p">[</span><span class="s">'insitu_max'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">80</span><span class="p">,</span>
+                                <span class="n">c</span><span class="o">=</span><span class="s">'purple'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_26_0.png" alt="Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model." />
+<figcaption>Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.</figcaption>
+
+</figure>
+
+<hr />
+
+<div class="notice--info">
+
+  <h2 id="optional---create-difference-bar-plot-lidar-vs-measured">Optional - Create Difference Bar Plot: Lidar vs Measured</h2>
+  <p>The last comparison that you may wish to explore is the plot by plot difference between lidar and measured tree height data. This is often helpful when you are trying to troubleshoot outlier values in your data. For instance you may notice that a few plots have very large differences between lidar and measured tree height.</p>
+
+  <p>You may decide to either:</p>
+
+  <ol>
+    <li>Visit the sites if you are close to the field site or</li>
+    <li>Explore imagery for the sites to see if you can figure out a good reason for why the results may be so different.</li>
+  </ol>
+
+  <p>Below you do the following</p>
+  <ol>
+    <li>You first subtract field measured tree height from lidar estimates</li>
+    <li>Then you create a barplot of that value</li>
+  </ol>
+</div>
+
+<div class="language-python input highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Calculate difference</span>
+<span class="n">SJER_final_height</span><span class="p">[</span><span class="s">"lidar_measured"</span><span class="p">]</span> <span class="o">=</span> <span class="n">SJER_final_height</span><span class="p">[</span><span class="s">"lidar_max"</span><span class="p">]</span> <span class="o">-</span> \
+    <span class="n">SJER_final_height</span><span class="p">[</span><span class="s">"insitu_max"</span><span class="p">]</span>
+
+<span class="c"># creat bar plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">SJER_final_height</span><span class="p">[</span><span class="s">'plotid'</span><span class="p">],</span>
+       <span class="n">SJER_final_height</span><span class="p">[</span><span class="s">'lidar_measured'</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Difference Between lidar and Measured Tree Height (m)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s">'Plot ID'</span><span class="p">,</span>
+       <span class="n">ylabel</span><span class="o">=</span><span class="s">'Difference (Lidar - Measured) meters'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span>
+         <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s">'right'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_28_0.png" alt="Barplot showing the difference between lidar and measured tree height for each plot." />
+<figcaption>Barplot showing the difference between lidar and measured tree height for each plot.</figcaption>
+
+</figure>
+
+
+        
+
+        <!-- if the page is a course lesson, add pagination -->
+
+        
+         <!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+
+<div class="previous--next">
+
+
+
+
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+       <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/" class="btn btn--info btn--large btn-success" style="float:right" >
+         Regression to Compare Variables
+         <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+        <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/" class="btn btn--info btn--large btn-success">
+          <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+          Extract Data From Raster </a>
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+
+    
+      
+
+      
+      
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-10-08">October 08, 2018</time></p>
+        
+      </footer>
+
+      
+
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+<br><br>
+  <a href="http://bit.ly/2jc5SXy" target="_blank">
+    <img src="http://localhost:4000/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder" width="40%"></a>
+</section>
+
+
+       
+    </div>
+
+    
+      
+
+
+<div class="page__comments">
+  <h4 class="page__comments-title">Leave a Comment</h4>
+  
+    <section id="disqus_thread"></section>
+  
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  6 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  12 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/prep-final-project/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     Today
+
+  
+
+
+</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+
+<!-- Adding analytics code -->
+
+        
+
+
+
+
+  
+     LINK HERE ea-python doi
+     earth-analytics-python, earth-analytics-python
+  
+
+
+  
+
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <li>
+      <strong>&copy; 2018 Earth Lab -
+      <a href="http://localhost:4000/license"> All materials on this site
+        are subject to the CC BY-NC-ND 4.0 License. </a>
+      </strong>
+    </li>
+  </ul>
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/earthlabcu"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/earthlab"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<!--
+<div class="page__footer-copyright">Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+-->
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  
+  <script type="text/javascript">
+  	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  	var disqus_shortname = 'earthlabcu';
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function() {
+  		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  	})();
+
+  	/* * * DON'T EDIT BELOW THIS LINE * * */
+  	(function () {
+  		var s = document.createElement('script'); s.async = true;
+  		s.type = 'text/javascript';
+  		s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  	}());
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-84081999-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
+
