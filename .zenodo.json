@@ -1,0 +1,26 @@
+{
+  "creators": [
+    {
+      "affiliation": "Earth Lab, University of Colorado - Boulder",
+      "name": "Wasser, Leah",
+      "orcid": "0000-0002-8177-6550"
+    },
+    {
+      "affiliation": "Earth Lab, University of Colorado - Boulder",
+      "name": "Palomino, Jenny",
+      "orcid": "0000-0003-4879-9299"
+    }
+  ],
+  "contributors":[
+    {
+      "affiliation": "Earth Lab, University of Colorado - Boulder",
+      "name": "Herwehe, Lauren",
+      "orcid": "0000-0002-8841-8879"}
+  ],
+  "keywords": [
+    "geospatial",
+    "remote sensing",
+    "earth analytics"
+  ],
+  "license": "CC-BY-NC-ND-4.0"
+}
