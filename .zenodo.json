@@ -9,13 +9,23 @@
       "affiliation": "Earth Lab, University of Colorado - Boulder",
       "name": "Palomino, Jenny",
       "orcid": "0000-0003-4879-9299"
+    },
+    {
+      "affiliation": "Berkeley Institute for Data Science, UC Berkeley",
+      "name": "Holdgraf, Chris",
+      "orcid": "0000-0002-2391-0678"
     }
   ],
-  "contributors":[
+  "contributors": [
     {
       "affiliation": "Earth Lab, University of Colorado - Boulder",
       "name": "Herwehe, Lauren",
-      "orcid": "0000-0002-8841-8879"}
+      "orcid": "0000-0002-8841-8879"
+    },
+    {
+      "affiliation": "DigitalGlobe",
+      "name": "Morrissey, Martha"
+    }
   ],
   "keywords": [
     "geospatial",
