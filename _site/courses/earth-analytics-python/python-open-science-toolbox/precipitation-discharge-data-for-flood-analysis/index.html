@@ -77,7 +77,7 @@
     <link rel="next" href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/" title="Lidar Raster Data in Python">
   
   
-    <link rel="prev" href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/" title="Data Driven Reports with Jupyter Notebooks | 2013 Colorado Flood Data">
+    <link rel="prev" href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/" title="Create Data Driven Reports using Jupyter Notebooks | 2013 Colorado Flood Data">
   
 
 
@@ -128,6 +128,12 @@
 <!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+    <script src="http://localhost:4000/assets/js/copy-code.js"></script>
   </head>
 
   <body>
@@ -157,7 +163,7 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth-lab-logo.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
           
             
             <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
@@ -175,9 +181,6 @@
             <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/events/">Events</a></li>
-          
-            
             <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
 
@@ -193,9 +196,14 @@
 
 
 
-
-
-
+  <div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:4000/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
 
 
 
@@ -203,6 +211,9 @@
 
   
     
+
+
+
 
 
 
@@ -215,7 +226,8 @@
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-<a href="http://localhost:4000"></a>
+ <a href="http://localhost:4000"></a>
+ 
  
  <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
  
@@ -223,24 +235,30 @@
    
      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
        <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
-       <meta itemprop="position" content="" />
+       <meta itemprop="position" content="1" />
      </li>
      <span class="sep">/</span>
    
     
+        
         <li><a href="http://localhost:4000/courses/">Courses </a>
+        <meta itemprop="position" content="2" />
         <span class="sep">/</span></li>
     
   
    
     
+        
         <li><a href="http://localhost:4000/courses/earth-analytics-python/">Earth analytics python </a>
+        <meta itemprop="position" content="3" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li><a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> Week 1.  Python open science toolbox </a>
+        
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/">Python open science toolbox </a>
+        <meta itemprop="position" content="4" />
         <span class="sep">/</span></li>
     
   
@@ -251,6 +269,11 @@
   
 </ol>
 </nav>
+
+<!-- from min mistakes -->
+
+
+
 
   
 
@@ -281,6 +304,8 @@
 
 
 
+
+
 <!-- make sure we're only grabbing pages for the course -->
 
 
@@ -295,7 +320,7 @@
 
 
 
-<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-python Home</a></h5>
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth analytics python</a></h5>
 
 <!-- Just get the pages from this course -->
 
@@ -311,20 +336,26 @@
 
 
 
+
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
-    
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-
-
-      
        
-        <li class='active-section'> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"><i class="fa fa-folder-open" aria-hidden="true"></i>
-           1. GET STARTED WITH DATA IN PYTHON / JUPYTER NOTEBOOKS</a></li>
+
         
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+                
+                    <li class='active-section'> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                     1. EARTH ANALYTICS PYTHON COURSE - WEEK ONE</a></li>
+
+            
 
 <div class='active-menu'>
       <ul>
@@ -338,99 +369,9 @@
 
         
         
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Open science python </span></li>
-        <ul>
+        <!-- If it's a textbook with a chapter number write "chapter", else assume it is a week -->
 
-      
-      <!-- count lessons -->
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/jupyter-notebooks-for-open-science/><!--1.1 --> - Why Open Science</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/best-practices-file-organization/><!--1.2 --> - File Organization Tips</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/><!--1.3 --> - Intro to Markdown</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/use-jupyter-notebooks/><!--1.4 --> - Jupyter Notebook Interface</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/><!--1.5 --> - Install and Import Packages</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/setup-earth-analytics-working-directory/><!--1.6 --> - Setup Working Directory</a></li>
-          
-          
-
-        
-       </ul>
-        
-
-        
-        
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Use data for science </span></li>
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i>   1.1 Use data for science  </span></li>
         <ul>
 
       
@@ -451,22 +392,6 @@
         
         
         
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
           
           <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/><!--1.2 --> - Data Driven Report</a></li>
           
@@ -479,114 +404,6 @@
           <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/ class='active'> <!--1.3 -->- Interactive Data Plots</a></li>
           
           
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-       </ul>
-        
-
-        
-        
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Flood overview  </span></li>
-        <ul>
-
-      
-      <!-- count lessons -->
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/an-overview-of-the-floods/><!--1.1 --> - CO Flood Overview</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/how-atmospheric-conditions-and-drought-impact-floods/><!--1.2 --> - Atmosphere & Drought</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/><!--1.3 --> - Precipitation</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/><!--1.4 --> - Terrain Changes</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
 
         
        </ul>
@@ -612,113 +429,332 @@
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       2. Lidar Raster Data in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 2 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR RASTER DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       3. Time Series Data in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       4. Introduction to Shapefiles and Vector Data in Open Source Python</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       5. Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 3 <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO SHAPEFILES AND VECTOR DATA IN OPEN SOURCE PYTHON - SPATIAL DATA</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       7. Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       8. Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       9. You Can Contribute To Open Source Software Too! How to Get Started in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 4 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR REMOTE SENSING UNCERTAINTY - COMPARE GROUND TO LIDAR MEASUREMENTS OF TREE HEIGHT IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       10. Learn to Create Efficient Data Workflows in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       11. MidTerm Review - Science Communication</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       13. Programmatic Data Access</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 5 <a href="http://localhost:4000/courses/earth-analytics-python/what-the-fork-who-did-this/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WHAT THE FORK? TEST YOUR CODE TROUBLESHOOTING SKILLS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 6 <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MULTISPECTRAL IMAGERY PYTHON - NAIP, LANDSAT, FIRE & REMOTE SENSING</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 7 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 8 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows-2/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 9 <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 QUANTIFY THE IMPACTS OF A FIRE USING MODIS AND LANDSAT REMOTE SENSING DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 10 <a href="http://localhost:4000/courses/earth-analytics-python/hdf4-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WORK WITH MODIS HDF4 DATA IN OPEN SOURCE PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 11 <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 PROGRAMMATIC DATA ACCESS</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 12 <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MIDTERM REVIEW - SCIENCE COMMUNICATION</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 13 <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 YOU CAN CONTRIBUTE TO OPEN SOURCE SOFTWARE! HOW TO GET STARTED IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/intro-to-open-source-software-python/"> 13.1   Contribute To Open Source </a>
+                                </li>
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 14 <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 TIME SERIES DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
 
     
   </ul></li>
@@ -769,20 +805,28 @@
     <meta itemprop="headline" content="Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods">
     <meta itemprop="description" content="Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time.">
     <meta itemprop="datePublished" content="February 05, 2018">
-    <meta itemprop="dateModified" content="September 25, 2018">
+    <meta itemprop="dateModified" content="March 06, 2020">
 
     <div class="page__inner-wrap">
-      
-
         <header>
+          
+
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
-          <h1 class="page__title" itemprop="headline">
-            Lesson 3. 
-             Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods
- </h1>
+
+          
+              
+
             
+                <h1 class="page__title" itemprop="headline">
+                Lesson 3. 
+                 Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods
+
+                
+                </h1>
+            
+
           
 
           
@@ -797,18 +841,26 @@
             </div>
           
 
-        <br/>
+            <br/>
 
-        
+            
 
-          
+              
+            
+
+            <!-- For tools pages add authors and tool title -->
+
+            
         </header>
-      
+
+
 
       <section class="page__content" itemprop="text">
+
         <!-- would like to include the TOC automatically but this does weird things-->
         
-        <aside class="sidebar__right">
+          
+            <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
 <ul class="toc__menu" id="markdown-toc">
@@ -948,6 +1000,8 @@ same Google doc that you used above.</p>
 </div>
 
 
+          
+
         
 
         <!-- if the page is a course lesson, add pagination -->
@@ -968,146 +1022,6 @@ same Google doc that you used above.</p>
 <!-- how do i figure out the link? i have to loop through again? -->
 
 
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
   <!-- ELSE if it's a module -->
   
 
@@ -1194,6 +1108,34 @@ same Google doc that you used above.</p>
   
 
 
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
   <!-- ELSE if it's a module -->
   
 
@@ -1246,6 +1188,68 @@ same Google doc that you used above.</p>
   
 
 
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
   <!-- ELSE if it's a module -->
   
 
@@ -1270,6 +1274,612 @@ same Google doc that you used above.</p>
 
     
   
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
   <!-- ELSE if it's a module -->
   
 
@@ -1346,50 +1956,6 @@ same Google doc that you used above.</p>
     
 
 
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
   <!-- ELSE if it's a module -->
   
 
@@ -1516,92 +2082,6 @@ same Google doc that you used above.</p>
   
 
 
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-  <!-- ELSE if it's a module -->
-  
-
-
     
   
   <!-- ELSE if it's a module -->
@@ -1686,6 +2166,8 @@ same Google doc that you used above.</p>
   
 
 
+    
+  
   <!-- ELSE if it's a module -->
   
 
@@ -1776,6 +2258,20 @@ same Google doc that you used above.</p>
 
     
   
+  <!-- ELSE if it's a module -->
+  
+
+
+    
+  
+  <!-- ELSE if it's a module -->
+  
+
+
+  <!-- ELSE if it's a module -->
+  
+
+
   <!-- ELSE if it's a module -->
   
 
@@ -1827,66 +2323,6 @@ same Google doc that you used above.</p>
   
 
 
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
   <!-- ELSE if it's a module -->
   
 
@@ -1961,48 +2397,6 @@ same Google doc that you used above.</p>
   
       
     
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
-
-
-    
-  
-  <!-- ELSE if it's a module -->
-  
 
 
     
@@ -2659,6 +3053,18 @@ same Google doc that you used above.</p>
   
   <!-- ELSE if it's a module -->
   
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
+
+
+  <!-- ELSE if it's a module -->
+  
+      
+    
 
 </div>
 
@@ -2704,9 +3110,45 @@ same Google doc that you used above.</p>
 
 
 
+
+
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-09-25">September 25, 2018</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-06">March 06, 2020</time></p>
         
+        <!-- Add license information w/ DOI to the bottom -->
+        
+  
+     The Earth analytics python course is subject to the
+     <a href="http://localhost:4000/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="https://zenodo.org/badge/latestdoi/161369201" target="_blank"> https://zenodo.org/badge/latestdoi/161369201</a>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
       </footer>
 
       
@@ -2761,113 +3203,11 @@ same Google doc that you used above.</p>
 
 <div class="grid__item">
   
-    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/">
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/plot-data-python">
   
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       
-      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Numpy Arrays
-</h2>
-
-
-     
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  6 minute read
-	
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. run multi-task functions, combine) with numpy arrays.
-</p>
-    </article>
-  </a>
-</div>
-
-        
-          
-
-
-
-
-<div class="grid__item">
-  
-    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Data Wrangling With Pandas
-</h2>
-
-
-     
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  12 minute read
-	
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">This lesson teaches you how to wrangle data (e.g. subselect, update, and combine) with pandas dataframes.
-</p>
-    </article>
-  </a>
-</div>
-
-        
-          
-
-
-
-
-<div class="grid__item">
-  
-    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/prep-final-project/">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Prepare For Final Project
-</h2>
-
-
-     
-      
-        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-      
-      <p class="archive__item-excerpt" itemprop="description">
-
-     Today
-
-  
-
-
-</p>
-    </article>
-  </a>
-</div>
-
-        
-          
-
-
-
-
-<div class="grid__item">
-  
-    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/data-wrangling/">
-  
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      
-      <h2 class="archive__item-title" itemprop="headline">Data Wrangling
+      <h2 class="archive__item-title" itemprop="headline">Plot Data With Matplotlib
 </h2>
 
 
@@ -2883,7 +3223,7 @@ same Google doc that you used above.</p>
       
       <p class="archive__item-excerpt" itemprop="description">
 
-     Today
+     This Week
 
   
 
@@ -2894,10 +3234,105 @@ same Google doc that you used above.</p>
 </div>
 
         
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/summarize-climate-data-by-season/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Seasonal Summary Values from Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  25 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Learn how to calculate seasonal summary values for MACA 2 climate data using xarray and region mask in open source Python.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/subset-netcdf4-climate-data-spatially-aoi/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Summary Values Using Spatial Areas of Interest (AOIs) including Shapefiles for Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  33 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Climate datasets stored in netcdf 4 format often cover the entire globe or an entire country. Learn how to subset climate data spatially and by time slices u...</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/use-netcdf-in-python-xarray/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">How to Open and Process NetCDF 4 Data Format in Open Source Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  26 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Historic and projected climate data are most often stored in netcdf 4 format. Learn how to open and process MACA version 2 climate data for the Continental U...</p>
+    </article>
+  </a>
+</div>
+
+        
       </div>
     </div>
   
 </div>
+
 
 
     <div class="page__footer">
@@ -2913,21 +3348,10 @@ same Google doc that you used above.</p>
 
 
 
-
-  
-     LINK HERE ea-python doi
-     earth-analytics-python, earth-analytics-python
-  
-
-
-  
-
-
-
 <div class="page__footer-follow">
   <ul class="social-icons">
     <li>
-      <strong>&copy; 2018 Earth Lab -
+      <strong>&copy; 2021 Earth Lab -
       <a href="http://localhost:4000/license"> All materials on this site
         are subject to the CC BY-NC-ND 4.0 License. </a>
       </strong>

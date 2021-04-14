@@ -22,7 +22,7 @@
 
 
 
-<title>GEOG 5563 - Earth Analytics: Fall 2018 Syllabus | Earth Data Science - Earth Lab </title>
+<title>GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus | Earth Data Science - Earth Lab </title>
 
 
 
@@ -32,7 +32,7 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Earth Data Science - Earth Lab">
-<meta property="og:title" content="GEOG 5563 - Earth Analytics: Fall 2018 Syllabus">
+<meta property="og:title" content="GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus">
 
 
   <link rel="canonical" href="http://localhost:4000/courses/earth-analytics-python/earth-analytics-syllabus/">
@@ -47,7 +47,7 @@
 <!-- twitter cards -->
 
   <meta name="twitter:site" content="@earthlabcu">
-  <meta name="twitter:title" content="GEOG 5563 - Earth Analytics: Fall 2018 Syllabus">
+  <meta name="twitter:title" content="GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus">
   <meta name="twitter:description" content="     In This Lesson  ">
   <meta name="twitter:url" content="http://localhost:4000/courses/earth-analytics-python/earth-analytics-syllabus/">
 
@@ -74,7 +74,7 @@
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2018-07-09T00:00:00-06:00">
   
-    <link rel="next" href="http://localhost:4000/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" title="GEOG 4463 &amp; 5463 - Earth Analytics Bootcamp: Homework 1">
+    <link rel="next" href="http://localhost:4000/courses/intro-to-earth-data-science/" title="Introduction to Earth Data Science | Earth Lab CU Boulder">
   
   
     <link rel="prev" href="http://localhost:4000/courses/earth-analytics-python/" title="Earth Analytics Python Course | Earth Lab CU Boulder">
@@ -128,6 +128,12 @@
 <!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+    <script src="http://localhost:4000/assets/js/copy-code.js"></script>
   </head>
 
   <body>
@@ -157,7 +163,7 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth-lab-logo.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
           
             
             <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
@@ -175,9 +181,6 @@
             <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/events/">Events</a></li>
-          
-            
             <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
 
@@ -193,9 +196,14 @@
 
 
 
-
-
-
+  <div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:4000/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
 
 
 
@@ -203,6 +211,9 @@
 
   
     
+
+
+
 
 
 
@@ -215,7 +226,8 @@
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-<a href="http://localhost:4000"></a>
+ <a href="http://localhost:4000"></a>
+ 
  
  <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
  
@@ -223,28 +235,37 @@
    
      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
        <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
-       <meta itemprop="position" content="" />
+       <meta itemprop="position" content="1" />
      </li>
      <span class="sep">/</span>
    
     
+        
         <li><a href="http://localhost:4000/courses/">Courses </a>
+        <meta itemprop="position" content="2" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li><a href="http://localhost:4000/courses/earth-analytics-python/">  Earth analytics python </a>
+        
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/">Earth analytics python </a>
+        <meta itemprop="position" content="3" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li class="current">GEOG 5563 - Earth Analytics: Fall 2018 Syllabus</li>
+        <li class="current">GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus</li>
     
   
 </ol>
 </nav>
+
+<!-- from min mistakes -->
+
+
+
 
   
 
@@ -275,6 +296,8 @@
 
 
 
+
+
 <!-- make sure we're only grabbing pages for the course -->
 
 
@@ -289,7 +312,7 @@
 
 
 
-<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-python Home</a></h5>
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth analytics python</a></h5>
 
 <!-- Just get the pages from this course -->
 
@@ -305,129 +328,370 @@
 
 
 
+
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
-    
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       1. Get Started with Data in Python / Jupyter Notebooks</a></li>
-    
+       
 
+        
 
-      
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 1 <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 EARTH ANALYTICS PYTHON COURSE - WEEK ONE</a></b>
+                </li>
 
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       2. Lidar Raster Data in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       3. Time Series Data in Python</a></li>
-    
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/"> 1.1   Use Data For Science </a>
+                                </li>
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       4. Introduction to Shapefiles and Vector Data in Open Source Python</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       5. Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 2 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR RASTER DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       7. Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       8. Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       9. You Can Contribute To Open Source Software Too! How to Get Started in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 3 <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO SHAPEFILES AND VECTOR DATA IN OPEN SOURCE PYTHON - SPATIAL DATA</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       10. Learn to Create Efficient Data Workflows in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       11. MidTerm Review - Science Communication</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       13. Programmatic Data Access</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 4 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR REMOTE SENSING UNCERTAINTY - COMPARE GROUND TO LIDAR MEASUREMENTS OF TREE HEIGHT IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 5 <a href="http://localhost:4000/courses/earth-analytics-python/what-the-fork-who-did-this/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WHAT THE FORK? TEST YOUR CODE TROUBLESHOOTING SKILLS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 6 <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MULTISPECTRAL IMAGERY PYTHON - NAIP, LANDSAT, FIRE & REMOTE SENSING</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 7 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 8 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows-2/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 9 <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 QUANTIFY THE IMPACTS OF A FIRE USING MODIS AND LANDSAT REMOTE SENSING DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 10 <a href="http://localhost:4000/courses/earth-analytics-python/hdf4-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WORK WITH MODIS HDF4 DATA IN OPEN SOURCE PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 11 <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 PROGRAMMATIC DATA ACCESS</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 12 <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MIDTERM REVIEW - SCIENCE COMMUNICATION</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 13 <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 YOU CAN CONTRIBUTE TO OPEN SOURCE SOFTWARE! HOW TO GET STARTED IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/intro-to-open-source-software-python/"> 13.1   Contribute To Open Source </a>
+                                </li>
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 14 <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 TIME SERIES DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
 
     
   </ul></li>
@@ -475,23 +739,31 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
 
-    <meta itemprop="headline" content="GEOG 5563 - Earth Analytics: Fall 2018 Syllabus">
+    <meta itemprop="headline" content="GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus">
     <meta itemprop="description" content="     In This Lesson  ">
     <meta itemprop="datePublished" content="July 09, 2018">
-    <meta itemprop="dateModified" content="May 12, 2017">
+    <meta itemprop="dateModified" content="March 06, 2020">
 
     <div class="page__inner-wrap">
-      
-
         <header>
+          
+
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
-          <h1 class="page__title" itemprop="headline">
+
+          
+              
+
             
-             GEOG 5563 - Earth Analytics: Fall 2018 Syllabus
- </h1>
+                <h1 class="page__title" itemprop="headline">
+                
+                 GEOG 4563/5563 - Earth Analytics: Spring 2020 Syllabus
+
+                
+                </h1>
             
+
           
 
           
@@ -503,18 +775,26 @@
             </div>
           
 
-        <br/>
+            <br/>
 
-        
+            
 
-          
+              
+            
+
+            <!-- For tools pages add authors and tool title -->
+
+            
         </header>
-      
+
+
 
       <section class="page__content" itemprop="text">
+
         <!-- would like to include the TOC automatically but this does weird things-->
         
-        <aside class="sidebar__right">
+          
+            <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> In This Lesson</h4></header>
 <ul class="toc__menu" id="markdown-toc">
@@ -529,9 +809,10 @@
   <li><a href="#grading" id="markdown-toc-grading">Grading</a></li>
   <li><a href="#communication" id="markdown-toc-communication">Communication</a></li>
   <li><a href="#canvas-discussion-post-rules" id="markdown-toc-canvas-discussion-post-rules">Canvas Discussion Post Rules</a></li>
-  <li><a href="#course-content" id="markdown-toc-course-content">Course Content</a></li>
+  <li><a href="#assignments--week-to-week-communication" id="markdown-toc-assignments--week-to-week-communication">Assignments &amp; Week to Week Communication</a></li>
   <li><a href="#course-policies" id="markdown-toc-course-policies">Course Policies</a></li>
   <li><a href="#course-components" id="markdown-toc-course-components">Course Components</a></li>
+  <li><a href="#general-course-schedule-subject-to-change" id="markdown-toc-general-course-schedule-subject-to-change">General Course Schedule (subject to change)</a></li>
 </ul>
 
   </nav>
@@ -543,7 +824,7 @@
 
   <ul>
     <li><strong>Location:</strong> SEEC N125 (distance learning classroom)</li>
-    <li><strong>Time:</strong> Wednesdays, 1:00PM - 3:50</li>
+    <li><strong>Time:</strong> Spring 2020: Wednesdays, 3:00PM - 5:30</li>
   </ul>
 
   <h2 id="instructor--ta">Instructor &amp; TA</h2>
@@ -551,8 +832,8 @@
   <ul>
     <li><strong>Instructor:</strong> Dr. Leah A. Wasser
       <ul>
-        <li>Office. S346 SEEC</li>
-        <li>Email leah.wasser@colorado.edu</li>
+        <li>Office: S346 SEEC</li>
+        <li>Email: leah.wasser at colorado.edu</li>
       </ul>
     </li>
   </ul>
@@ -573,10 +854,16 @@ However unless otherwise notified, office hours are as follows:</p>
     </thead>
     <tbody>
       <tr>
-        <td>Mondays</td>
-        <td>1:30 pm - 3:00 pm</td>
-        <td>S346 SEEC</td>
+        <td>Mondays (in person)</td>
+        <td>11:00 am - 12:30 pm</td>
+        <td>Earth Lab  S346 SEEC</td>
         <td>Leah</td>
+      </tr>
+      <tr>
+        <td>Tuesday (in person / zoom)</td>
+        <td>3:00 pm - 4:30 pm</td>
+        <td>Earth Lab S346 SEEC</td>
+        <td>Jenny</td>
       </tr>
     </tbody>
   </table>
@@ -599,7 +886,7 @@ However unless otherwise notified, office hours are as follows:</p>
   <h2 id="online-participation">Online Participation</h2>
 
   <p>If you enrolled in the online section of this course, you can join the course
-remotely using ZOOM. Please visit D2L to access the zoom link.</p>
+remotely using ZOOM. Please visit Canvas to access the zoom link.</p>
 
   <p><a href="http://www.colorado.edu/oit/services/conferencing-services/web-conferencing-zoom" target="_blank">Click here to get help getting Zoom up and running</a></p>
 
@@ -613,10 +900,8 @@ remotely using ZOOM. Please visit D2L to access the zoom link.</p>
   </ol>
 
   <h4 id="textbook">Textbook</h4>
-  <p>There is no required textbook for this course. You will learn about each topic 
-taught in the course from a suite of papers, blog posts, text and other resources 
-throughout the course. As you find other resources that help you through the class, 
-please feel free to share them with the instructor and your classmates.</p>
+
+  <p>The textbook for this course is online here: https://www.earthdatascience.org/courses/use-data-open-source-python/.</p>
 
 </div>
 
@@ -704,7 +989,7 @@ within a reasonable time period.</p>
 
 <h3 id="final-letter-grades">Final Letter Grades</h3>
 
-<p>Please use the table below to understand how your numeric grade - listed in D2L
+<p>Please use the table below to understand how your numeric grade - listed in Canvas
 related to your final letter grade in this course.</p>
 
 <table>
@@ -817,8 +1102,8 @@ subject line and be signed with your full name. Please use your official
 issues with the course website, or issues with R, please</p>
 
 <ol>
-  <li>See if the question has already been asked on Piazza</li>
-  <li>If the question hasn’t already been asked, please <strong>post your question to PIAZZA</strong>.</li>
+  <li>See if the question has already been asked in the Canvas Discussion page.</li>
+  <li>If the question hasn’t already been asked, please <strong>post your question to the Canvas Discussion page</strong>.</li>
 </ol>
 
 <h2 id="canvas-discussion-post-rules">Canvas Discussion Post Rules</h2>
@@ -830,7 +1115,7 @@ issues with the course website, or issues with R, please</p>
 <ul>
   <li>Post questions that you have about homework assignments</li>
   <li>Post issues that you find with the website – typos, errors, points of confusion</li>
-  <li>Answer other questions if you can (you will receive participation points for posting on piazza so use it)</li>
+  <li>Answer other questions if you can (you will receive participation points for posting in the Canvas Discussion page so use it)</li>
   <li><strong>upvote</strong> questions that you have as well or that you think are written well</li>
   <li>Be respectful of your peers. All questions related to data and earth analytics are good questions.</li>
 </ul>
@@ -840,10 +1125,10 @@ issues with the course website, or issues with R, please</p>
 <ul>
   <li>Post any content that is in any way offensive or that violates University codes of conduct (see links below)</li>
   <li>Post explicit solutions to homework assignments (help each other out but don’t post the answer)</li>
-  <li>Post an entire <code class="highlighter-rouge">.ipynb</code> document on Piazza - rather post a small snippet of code that is causing problems and the associated code error</li>
+  <li>Post an entire <code class="highlighter-rouge">.ipynb</code> document on the Canvas Discussion page - rather post a small snippet of code that is causing problems and the associated code error</li>
 </ul>
 
-<p>When posting questions about coding issues to Piazza, please do your best to
+<p>When posting questions about coding issues to the Canvas Discussion page, please do your best to
 provide an example of the specific code error that you are encountering.</p>
 
 <p>Example. The code</p>
@@ -856,9 +1141,10 @@ provide an example of the specific code error that you are encountering.</p>
 
 <p>In the example above the fix would be to make sure your function name is correct.</p>
 
-<h2 id="course-content">Course Content</h2>
-<p>Material pertaining to this course will be communicated through the course website. <a href="http://localhost:4000/courses/earth-analytics/">http://localhost:4000</a>. Students are expected to check this website daily for assignment and
-content updates.</p>
+<h2 id="assignments--week-to-week-communication">Assignments &amp; Week to Week Communication</h2>
+
+<p>All assignments and week to week items will be communicated through Canvas - our course learning management system. Please canvas daily for assignment and
+content updates. Turn on notifications if you don’t login to canvas regularly.</p>
 
 <h2 id="course-policies">Course Policies</h2>
 
@@ -867,7 +1153,7 @@ content updates.</p>
 <p>Attendance is encouraged for all class sessions. I have found that students
 who attend class often do better than those who don’t. However, with that
 said the entire course is available in an online format and you will be able
-to participate in many activities remotely using the Piazza forum.</p>
+to participate in many activities remotely using the Canvas Discussion page.</p>
 
 <h3 id="participation">Participation</h3>
 
@@ -974,6 +1260,118 @@ is subject to change. This course content schedule is not designed as a
 contract. Rather, it is
 an overview guide to the materials that you will review during the semester.</p>
 
+<h2 id="general-course-schedule-subject-to-change">General Course Schedule (subject to change)</h2>
+
+<p>The schedule below is a rough estimate of topics that will be covered this semester.
+Please note that some of these topics may change or move around on the calendar depending upon how previous weeks go.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th style="text-align: left">Topic</th>
+      <th style="text-align: left">Specific Data Topics</th>
+      <th>Who</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1-2</td>
+      <td style="text-align: left">Colorado Floods</td>
+      <td style="text-align: left">Spatial data, Lidar, Raster data</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Spatial Vector data in Python</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="text-align: left">Remote Sensing Uncertainty - Comparing ground to airborne lidar measurements</td>
+      <td style="text-align: left">Lidar, Raster, Vector</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="text-align: left">Fire: Intro to Multi-spectral Remote Sensing</td>
+      <td style="text-align: left">Geotiff, NAIP, Landsat</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="text-align: left">Fire: Multi-spectral Remote Sensing 2</td>
+      <td style="text-align: left">H4, MODIS</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td style="text-align: left">Automate Workflows</td>
+      <td style="text-align: left"> </td>
+      <td>Jenny, (Leah Out)</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td style="text-align: left">Automate workflows 2</td>
+      <td style="text-align: left">H4, MODIS</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td style="text-align: left">Introduction to H5 (TBD)</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td style="text-align: left">Mid Term Presentations (TBD)</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td style="text-align: left">SPRING BREAK!!</td>
+      <td style="text-align: left"> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>12</td>
+      <td style="text-align: left">Introduction to API’s</td>
+      <td style="text-align: left">H4, MODIS</td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td style="text-align: left">Streaming data access &amp; Social Media for Science – Twitter</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td style="text-align: left">Contribute to Open Source Software</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td style="text-align: left">Work on Projects</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td style="text-align: left">LAST DAY OF CLASS! Final Project Presentations</td>
+      <td style="text-align: left"> </td>
+      <td>Leah</td>
+    </tr>
+  </tfoot>
+</table>
+
+
+          
 
         
 
@@ -992,9 +1390,45 @@ an overview guide to the materials that you will review during the semester.</p>
 
 
 
+
+
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-05-12">May 12, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-06">March 06, 2020</time></p>
         
+        <!-- Add license information w/ DOI to the bottom -->
+        
+  
+     The Earth analytics python course is subject to the
+     <a href="http://localhost:4000/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="https://zenodo.org/badge/latestdoi/161369201" target="_blank"> https://zenodo.org/badge/latestdoi/161369201</a>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
       </footer>
 
       
@@ -1026,7 +1460,149 @@ an overview guide to the materials that you will review during the semester.</p>
 
   
   
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/plot-data-python">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Plot Data With Matplotlib
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     This Week
+
+  
+
+
+</p>
+    </article>
+  </a>
 </div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/summarize-climate-data-by-season/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Seasonal Summary Values from Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  25 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Learn how to calculate seasonal summary values for MACA 2 climate data using xarray and region mask in open source Python.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/subset-netcdf4-climate-data-spatially-aoi/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Summary Values Using Spatial Areas of Interest (AOIs) including Shapefiles for Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  33 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Climate datasets stored in netcdf 4 format often cover the entire globe or an entire country. Learn how to subset climate data spatially and by time slices u...</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/use-netcdf-in-python-xarray/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">How to Open and Process NetCDF 4 Data Format in Open Source Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  26 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Historic and projected climate data are most often stored in netcdf 4 format. Learn how to open and process MACA version 2 climate data for the Continental U...</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
 
 
     <div class="page__footer">
@@ -1042,21 +1618,10 @@ an overview guide to the materials that you will review during the semester.</p>
 
 
 
-
-  
-     LINK HERE ea-python doi
-     earth-analytics-python, earth-analytics-python
-  
-
-
-  
-
-
-
 <div class="page__footer-follow">
   <ul class="social-icons">
     <li>
-      <strong>&copy; 2018 Earth Lab -
+      <strong>&copy; 2021 Earth Lab -
       <a href="http://localhost:4000/license"> All materials on this site
         are subject to the CC BY-NC-ND 4.0 License. </a>
       </strong>

@@ -128,6 +128,12 @@
 <!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
+    <script src="http://localhost:4000/assets/js/copy-code.js"></script>
   </head>
 
   <body>
@@ -157,7 +163,7 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth_sm.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/"><img src="/images/earth-lab-logo.png" alt="Earth Lab - Earth Data Science" style="height:80%;width:85%"></a></li>
           
             
             <li class="masthead__menu-item"><a href="http://localhost:4000/tutorials/">Tutorials</a></li>
@@ -175,9 +181,6 @@
             <li class="masthead__menu-item"><a href="http://localhost:4000/blog/">Blog</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/events/">Events</a></li>
-          
-            
             <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
 
@@ -193,9 +196,14 @@
 
 
 
-
-
-
+  <div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost:4000/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
 
 
 
@@ -203,6 +211,9 @@
 
   
     
+
+
+
 
 
 
@@ -215,7 +226,8 @@
 
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-<a href="http://localhost:4000"></a>
+ <a href="http://localhost:4000"></a>
+ 
  
  <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
  
@@ -223,18 +235,22 @@
    
      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
        <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
-       <meta itemprop="position" content="" />
+       <meta itemprop="position" content="1" />
      </li>
      <span class="sep">/</span>
    
     
+        
         <li><a href="http://localhost:4000/courses/">Courses </a>
+        <meta itemprop="position" content="2" />
         <span class="sep">/</span></li>
     
   
    
     
-        <li><a href="http://localhost:4000/courses/earth-analytics-python/"> Earth analytics python </a>
+        
+        <li><a href="http://localhost:4000/courses/earth-analytics-python/">Earth analytics python </a>
+        <meta itemprop="position" content="3" />
         <span class="sep">/</span></li>
     
   
@@ -245,6 +261,11 @@
   
 </ol>
 </nav>
+
+<!-- from min mistakes -->
+
+
+
 
   
 
@@ -275,11 +296,13 @@
 
 
 
+
+
 <!-- make sure we're only grabbing pages for the course -->
 
 
 
-<!--<h3>Week 8 Lessons</h3>-->
+<!--<h3>Week 9 Lessons</h3>-->
 <!-- i don't think the code below is used as modules is defined lower down as well. -->
 
 <!-- This is how modules are sorted on the left hand side bar -->
@@ -289,7 +312,7 @@
 
 
 
-<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth-analytics-python Home</a></h5>
+<h5><a href="http://localhost:4000/courses/earth-analytics-python/" ><i class="fa fa-home" aria-hidden="true"></i> Earth analytics python</a></h5>
 
 <!-- Just get the pages from this course -->
 
@@ -305,86 +328,229 @@
 
 
 
+
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
-    
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       1. Get Started with Data in Python / Jupyter Notebooks</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       2. Lidar Raster Data in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       3. Time Series Data in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       4. Introduction to Shapefiles and Vector Data in Open Source Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       5. Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       7. Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-
-
-      
        
-      <li> <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
-         8. QUANTIFY THE IMPACTS OF A FIRE USING MODIS AND LANDSAT REMOTE SENSING DATA IN PYTHON</a></li>
+
         
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 1 <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 EARTH ANALYTICS PYTHON COURSE - WEEK ONE</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/"> 1.1   Use Data For Science </a>
+                                </li>
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 2 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-raster-data/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR RASTER DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 3 <a href="http://localhost:4000/courses/earth-analytics-python/spatial-data-vector-shapefiles/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 INTRODUCTION TO SHAPEFILES AND VECTOR DATA IN OPEN SOURCE PYTHON - SPATIAL DATA</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 4 <a href="http://localhost:4000/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LIDAR REMOTE SENSING UNCERTAINTY - COMPARE GROUND TO LIDAR MEASUREMENTS OF TREE HEIGHT IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 5 <a href="http://localhost:4000/courses/earth-analytics-python/what-the-fork-who-did-this/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WHAT THE FORK? TEST YOUR CODE TROUBLESHOOTING SKILLS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 6 <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MULTISPECTRAL IMAGERY PYTHON - NAIP, LANDSAT, FIRE & REMOTE SENSING</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 7 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 8 <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows-2/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 LEARN TO CREATE EFFICIENT DATA WORKFLOWS IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+                
+                    <li>  <a href="http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/" class='active'> SECTION 9<br><!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
+                          QUANTIFY THE IMPACTS OF A FIRE USING MODIS AND LANDSAT REMOTE SENSING DATA IN PYTHON</a></li>
+                
 
 <div class='active-menu'>
       <ul>
@@ -396,111 +562,7 @@
 
         
 
-        
-        
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Clouds in remote sensing data - python </span></li>
-        <ul>
-
-      
-      <!-- count lessons -->
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/><!--8.1 --> - Clouds, Shadows & Masks</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-python/><!--8.2 --> - Replace Raster Cell Values</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-
-        
-       </ul>
-        
-
-        
-        
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> Normalized burn ration for fire severity - in python </span></li>
-        <ul>
-
-      
-      <!-- count lessons -->
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/><!--8.1 --> - dNBR Vegetation Index</a></li>
-          
-          
-
-        
-        
-        
-
-        
-        
-        
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/calculate-dNBR-Landsat-8/><!--8.2 --> - dNBR With Landsat</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/><!--8.3 --> - MODIS Data in Python</a></li>
-          
-          
-
-        
-        
-        
-          
-          <li><a href= http://localhost:4000/courses/earth-analytics-python/multispectral-remote-sensing-modis/get-landsat-data-earth-explorer/><!--8.4 --> - Get Data - Earth Explorer</a></li>
-          
-          
-
-        
-       </ul>
-        
-
-        
+         <li>Week 9 readings and homework for the earth-analytics-python course. </li> 
       </ul>
 
       <!-- BEGIN Learn how to lessons -->
@@ -520,47 +582,132 @@
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       9. You Can Contribute To Open Source Software Too! How to Get Started in Python</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 10 <a href="http://localhost:4000/courses/earth-analytics-python/hdf4-remote-sensing-modis/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 WORK WITH MODIS HDF4 DATA IN OPEN SOURCE PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
 
-    
+            <!-- This is for the activate section in the nav which is grey -->
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/create-efficient-data-workflows/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       10. Learn to Create Efficient Data Workflows in Python</a></li>
-    
-
-
-      
-
-    
-
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       11. MidTerm Review - Science Communication</a></li>
-    
-
-
-      
+            
 
     
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    
-    <li> <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-       13. Programmatic Data Access</a></li>
-    
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 11 <a href="http://localhost:4000/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 PROGRAMMATIC DATA ACCESS</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
 
 
-      
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 12 <a href="http://localhost:4000/courses/earth-analytics-python/communicate-your-science/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 MIDTERM REVIEW - SCIENCE COMMUNICATION</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 13 <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 YOU CAN CONTRIBUTE TO OPEN SOURCE SOFTWARE! HOW TO GET STARTED IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                                <li>
+                                    <a href="http://localhost:4000/courses/earth-analytics-python/contribute-to-open-source/intro-to-open-source-software-python/"> 13.1   Contribute To Open Source </a>
+                                </li>
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
+
+    
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            
+                <li> <b>SECTION 14 <a href="http://localhost:4000/courses/earth-analytics-python/use-time-series-data-in-python/"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                 TIME SERIES DATA IN PYTHON</a></b>
+                </li>
+
+                    <!-- list the chapters for each section  updating this to show a chapter number if it's a textbook-->
+                    
+                     <ul>
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+
+
+            
+
+            <!-- This is for the activate section in the nav which is grey -->
+
+            
 
     
   </ul></li>
@@ -611,42 +758,61 @@
     <meta itemprop="headline" content="Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python">
     <meta itemprop="description" content="     This Week  ">
     <meta itemprop="datePublished" content="January 01, 2017">
-    <meta itemprop="dateModified" content="December 10, 2018">
+    <meta itemprop="dateModified" content="April 07, 2020">
 
     <div class="page__inner-wrap">
-      
-
         <header>
+          
+
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
-          <h1 class="page__title" itemprop="headline">
+
+          
+              
+
             
-             Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python
- </h1>
+                <h1 class="page__title" itemprop="headline">
+                
+                 Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python
+
+                
+                </h1>
             
-          
 
           
 
-        <br/>
-
-        
-
           
+
+            <br/>
+
+            
+
+              
+            
+
+            <!-- For tools pages add authors and tool title -->
+
+            
         </header>
-      
+
+
 
       <section class="page__content" itemprop="text">
+
         <!-- would like to include the TOC automatically but this does weird things-->
         
-        <aside class="sidebar__right">
+          
+            <aside class="sidebar__right">
 <nav class="toc">
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> This Week</h4></header>
 <ul class="toc__menu" id="markdown-toc">
-  <li><a href="#welcome-to-week-8" id="markdown-toc-welcome-to-week-8"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 8!</a></li>
-  <li><a href="#homework-plot-1---grid-of-3---3-band-cir-plots-post-fire" id="markdown-toc-homework-plot-1---grid-of-3---3-band-cir-plots-post-fire">Homework Plot 1 - Grid of 3 - 3 band CIR plots post fire</a></li>
-  <li><a href="#homework-plot-2--3--landsat--modis-difference-normalized-burn-ration--dnbr" id="markdown-toc-homework-plot-2--3--landsat--modis-difference-normalized-burn-ration--dnbr">Homework Plot 2 &amp; 3 : Landsat &amp; MODIS Difference Normalized Burn Ration  dNBR</a></li>
+  <li><a href="#welcome-to-week-9" id="markdown-toc-welcome-to-week-9"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 9!</a></li>
+  <li><a href="#materials-to-review-for-this-weeks-assignment" id="markdown-toc-materials-to-review-for-this-weeks-assignment">Materials to Review For This Week’s Assignment</a></li>
+  <li><a href="#homework-figure-1---grid-of-3-color-infrared-cir-post-fire-plots-naip-landsat-and-modis" id="markdown-toc-homework-figure-1---grid-of-3-color-infrared-cir-post-fire-plots-naip-landsat-and-modis">Homework Figure 1 - Grid of 3 Color InfraRed (CIR) Post-Fire Plots: NAIP, Landsat and MODIS</a></li>
+  <li><a href="#homework-figure-2---difference-ndvi-dndvi-using-landsat--modis" id="markdown-toc-homework-figure-2---difference-ndvi-dndvi-using-landsat--modis">Homework Figure 2 - Difference NDVI (dNDVI) Using Landsat &amp; MODIS</a></li>
+  <li><a href="#homework-figure-3---difference-nbr-dnbr-using-landsat--modis" id="markdown-toc-homework-figure-3---difference-nbr-dnbr-using-landsat--modis">Homework Figure 3 - Difference NBR (dNBR) Using Landsat &amp; MODIS</a></li>
+  <li><a href="#landsat-vs-modis--burned-area" id="markdown-toc-landsat-vs-modis--burned-area">Landsat vs MODIS  Burned Area</a></li>
 </ul>
 
   </nav>
@@ -654,9 +820,9 @@
 
 <div class="notice--info">
 
-  <h2 id="welcome-to-week-8"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 8!</h2>
+  <h2 id="welcome-to-week-9"><i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 9!</h2>
 
-  <p>Welcome to week 8 of Earth Analytics! This week you will work with MODIS and 
+  <p>Welcome to week 9 of Earth Analytics! This week you will work with MODIS and 
 Landsat data to calculate burn indices.</p>
 
   <p><a href="https://ndownloader.figshare.com/files/10960109" data-proofer-ignore="" class="btn btn--success btn--x-large"><i class="fa fa-download" aria-hidden="true"></i> Download Cold Springs Fire Data (~150 MB)</a></p>
@@ -666,60 +832,82 @@ Landsat data to calculate burn indices.</p>
 
 </div>
 
-<h3 id="2-complete-the-assignment-using-the-template-for-this-week">2. Complete the Assignment Using the Template for this week.</h3>
-<p>(10 points)
-Please note that like the flood report, this assignment is worth more points than
-a usual weekly assignment. You have 1 week to complete this assignment. Start
-early!</p>
+<h2 id="materials-to-review-for-this-weeks-assignment">Materials to Review For This Week’s Assignment</h2>
 
-<h2 id="homework-plot-1---grid-of-3---3-band-cir-plots-post-fire">Homework Plot 1 - Grid of 3 - 3 band CIR plots post fire</h2>
+<p>Please be sure to review:</p>
+<ol>
+  <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook and</li>
+  <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook</li>
+</ol>
+
+<h3 id="1-complete-the-assignment-using-the-template-for-this-week">1. Complete the Assignment Using the Template for this week.</h3>
+
+<p>Note that this assignment is worth more points than a usual weekly assignment.</p>
+
+<p><a href="https://github.com/earthlab-education/ea-python-2020-09-cold-springs-workflows-h4-template" target="_blank">Click here to view the the example GitHub Repo with the assignment template. </a></p>
+
+<h3 id="2-suggested-fire-readings">2. Suggested Fire Readings</h3>
+
+<p>Please read the articles below to prepare for next week’s class.</p>
+
+<ul>
+  <li><a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver Post article on the Cold Springs fire.</a></li>
+  <li><a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore="">Fire science for rainforests -  Cochrane 2003.</a></li>
+  <li><a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a></li>
+  <li><a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a></li>
+</ul>
+
+<h2 id="homework-figure-1---grid-of-3-color-infrared-cir-post-fire-plots-naip-landsat-and-modis">Homework Figure 1 - Grid of 3 Color InfraRed (CIR) Post-Fire Plots: NAIP, Landsat and MODIS</h2>
 
 <figure class="output display_data">
 
-<img src="http://localhost:4000//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_3_0.png" alt="CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire." />
+<img src="http://localhost:4000/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_18_0.png" alt="CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire." />
 <figcaption>CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.</figcaption>
 
 </figure>
 
+<h2 id="homework-figure-2---difference-ndvi-dndvi-using-landsat--modis">Homework Figure 2 - Difference NDVI (dNDVI) Using Landsat &amp; MODIS</h2>
+
 <figure class="output display_data">
 
-<img src="http://localhost:4000//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_4_0.png" alt="NBR images calculated from Landsat for pre- and post-Cold Springs fire." />
+<img src="http://localhost:4000/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_21_0.png" alt="Landsat and MODIS NDVI Normalized Difference from before and after the Cold Springs fire." />
+<figcaption>Landsat and MODIS NDVI Normalized Difference from before and after the Cold Springs fire.</figcaption>
+
+</figure>
+
+<h2 id="homework-figure-3---difference-nbr-dnbr-using-landsat--modis">Homework Figure 3 - Difference NBR (dNBR) Using Landsat &amp; MODIS</h2>
+
+<figure class="output display_data">
+
+<img src="http://localhost:4000/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_25_0.png" alt="NBR images calculated from Landsat for pre- and post-Cold Springs fire." />
 <figcaption>NBR images calculated from Landsat for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
 
 <figure class="output display_data">
 
-<img src="http://localhost:4000//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_5_0.png" alt="NBR images calculated from MODIS for pre- and post-Cold Springs fire." />
+<img src="http://localhost:4000/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_31_0.png" alt="NBR images calculated from MODIS for pre- and post-Cold Springs fire." />
 <figcaption>NBR images calculated from MODIS for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
 
-<div class="output execute_result highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([2, 3, 4])
-</code></pre></div></div>
-
 <figure class="output display_data">
 
-<img src="http://localhost:4000//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_7_0.png" alt="Histogram for the dNBR image calculated from MODIS for the Cold Springs fire." />
-<figcaption>Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.</figcaption>
+<img src="http://localhost:4000/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_35_0.png" alt="Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire." />
+<figcaption>Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
 
-<h2 id="homework-plot-2--3--landsat--modis-difference-normalized-burn-ration--dnbr">Homework Plot 2 &amp; 3 : Landsat &amp; MODIS Difference Normalized Burn Ration  dNBR</h2>
+<h1 id="landsat-vs-modis--burned-area">Landsat vs MODIS  Burned Area</h1>
 
-<figure class="output display_data">
-
-<img src="http://localhost:4000//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_9_0.png" alt="Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire." />
-<figcaption>Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
-
-</figure>
-
-<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Burned Landsat class 1:
-Burned Landsat class 2:
-Burned MODIS class 1:
-Burned MODIS class 2:
+<div class="output highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Burned Landsat class 4:
+Burned Landsat class 5:
+Burned MODIS class 4:
+Burned MODIS class 5:
 </code></pre></div></div>
 
+
+          
 
         
 
@@ -738,9 +926,45 @@ Burned MODIS class 2:
 
 
 
+
+
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-12-10">December 10, 2018</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-07">April 07, 2020</time></p>
         
+        <!-- Add license information w/ DOI to the bottom -->
+        
+  
+     The Earth analytics python course is subject to the
+     <a href="http://localhost:4000/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="https://zenodo.org/badge/latestdoi/161369201" target="_blank"> https://zenodo.org/badge/latestdoi/161369201</a>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
       </footer>
 
       
@@ -772,7 +996,149 @@ Burned MODIS class 2:
 
   
   
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/earth-analytics-bootcamp/plot-data-python">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Plot Data With Matplotlib
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">
+
+     This Week
+
+  
+
+
+</p>
+    </article>
+  </a>
 </div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/summarize-climate-data-by-season/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Seasonal Summary Values from Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  25 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Learn how to calculate seasonal summary values for MACA 2 climate data using xarray and region mask in open source Python.
+</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/subset-netcdf4-climate-data-spatially-aoi/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">Calculate Summary Values Using Spatial Areas of Interest (AOIs) including Shapefiles for Climate Data Variables Stored in NetCDF 4 Format: Work With MACA v2 Climate Data in Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  33 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Climate datasets stored in netcdf 4 format often cover the entire globe or an entire country. Learn how to subset climate data spatially and by time slices u...</p>
+    </article>
+  </a>
+</div>
+
+        
+          
+
+
+
+
+<div class="grid__item">
+  
+    <a href="http://localhost:4000/courses/use-data-open-source-python/hierarchical-data-formats-hdf/use-netcdf-in-python-xarray/">
+  
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      
+      <h2 class="archive__item-title" itemprop="headline">How to Open and Process NetCDF 4 Data Format in Open Source Python
+</h2>
+
+
+     
+      
+        <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  26 minute read
+	
+</p>
+      
+      <p class="archive__item-excerpt" itemprop="description">Historic and projected climate data are most often stored in netcdf 4 format. Learn how to open and process MACA version 2 climate data for the Continental U...</p>
+    </article>
+  </a>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
 
 
     <div class="page__footer">
@@ -788,21 +1154,10 @@ Burned MODIS class 2:
 
 
 
-
-  
-     LINK HERE ea-python doi
-     earth-analytics-python, earth-analytics-python
-  
-
-
-  
-
-
-
 <div class="page__footer-follow">
   <ul class="social-icons">
     <li>
-      <strong>&copy; 2018 Earth Lab -
+      <strong>&copy; 2021 Earth Lab -
       <a href="http://localhost:4000/license"> All materials on this site
         are subject to the CC BY-NC-ND 4.0 License. </a>
       </strong>
