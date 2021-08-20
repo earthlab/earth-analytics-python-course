@@ -2,14 +2,17 @@
 layout: single
 category: courses
 title: "Earth Analytics Python Course | Earth Lab CU Boulder"
+authors: ['Leah Wasser']
 nav-title: "Earth Analytics Home"
 permalink: /courses/earth-analytics-python/
 course: "earth-analytics-python"
-modified: 2018-09-25
+modified: 2021-06-07
 module-type: 'overview'
 module-title: "Earth Analytics Python Course"
 week-landing: 0
 week: 0
+estimated-time: "12 weeks"
+difficulty: "intermediate"
 sidebar:
   nav:
 comments: false
@@ -42,7 +45,7 @@ Earth analytics is an intermediate, multidisciplinary course that addresses majo
 questions in Earth science and teaches students to use the analytical tools
 necessary to undertake exploration of heterogeneous ‘big scientific data’. This
 course is designed for graduate students
-and students participating in the <a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target = "_blank">Earth Data Analytics Professional Certificate.</a>
+and students participating in the <a href="https://earthlab.colorado.edu/earth-data-analytics-professional-graduate-certificate?utm_source=eds&utm_medium=website&utm_campaign=certificate-2018" target = "_blank">Earth Data Analytics Professional Certificate.</a>
 
 ### Course Overview 
 Throughout the course we will use computationally intensive techniques to address
