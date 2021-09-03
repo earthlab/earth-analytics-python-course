@@ -28,5 +28,7 @@
     "remote sensing",
     "earth analytics"
   ],
-  "license": "CC-BY-NC-ND-4.0"
+  "license": "CC-BY-NC-ND-4.0",
+  "upload_type": "publication",
+  "publication_type": "other"
 }
